@@ -4,6 +4,7 @@ import os
 import PIL
 from tqdm import tqdm
 import gc
+from lxml import etree
 
 # this needs to be executed before flipping
 
@@ -20,6 +21,14 @@ for filename in tqdm(os.listdir(directory)):
             target_xml_loc=f[0:18]+'annotations\\'+f[-30:-3]+'xml'
             source_xml_loc=f[0:18]+'annotations\\'+f[-30:-9]+'.xml'
             copyfile(source_xml_loc, target_xml_loc)
+            print(f[-30:])
+
+            root = etree.Element("annotation")
+            child2 = etree.SubElement(root, "filename")
+            child2.text = f[-30:]
+
+
+
         img=None
 
 

@@ -1,0 +1,12 @@
+*.jpeg
+*.jpg
+*.xml
+j2w files/OMWRGBMRVL_K391n.j2w
+*.j2w
+*.jp2
+imageai/
+venv/
+*.png
+*.h5
+tennis_data/
+*.pyc

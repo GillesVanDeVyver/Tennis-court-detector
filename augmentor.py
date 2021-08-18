@@ -44,6 +44,12 @@ def augment_images(image_as_np_arr):
             0.5,
             iaa.Emboss(alpha=(0, 1.0), strength=(0, 0.75)),
         ),
+        iaa.Sometimes(
+            0.5,
+            iaa.GammaContrast(1.5),
+        ),
+
+
     ], random_order=True)
 
     images_aug = seq(images=image_as_np_arr)

@@ -88,8 +88,6 @@ def geo_augment(xml_loc,jpg_loc,target_loc):
 PIL.Image.MAX_IMAGE_PIXELS = 933120000
 directory = 'tennis_data\\train\images'
 
-image_list=[]
-img_locations=[]
 print("flipping images...")
 for filename in tqdm(os.listdir(directory)):
     f = os.path.join(directory, filename)
@@ -98,8 +96,11 @@ for filename in tqdm(os.listdir(directory)):
         if not "hor" in f and not "ver" in f and not 'xml' in f:
             print(f)
             jpg_loc=f
-            xml_loc=f[0:18]+'annotations'+f[-26:-3]+'xml'
-            target_loc=jpg_loc
+            if 'aug' in f:
+                xml_loc = f[0:18] + 'annotations\\' + f[-30:-3] + 'xml'
+            else:
+                xml_loc=f[0:18]+'annotations\\'+f[-26:-3]+'xml'
+            target_loc=jpg_loc[0:-4]
             geo_augment(xml_loc, jpg_loc, target_loc)
         img=None
 

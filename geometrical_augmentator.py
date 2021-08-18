@@ -25,7 +25,7 @@ import gc
 def save_file(bbs_aug, target_location,image_aug):
     foldername = ""
 
-    anno = CreateAnnotations(foldername, target_location)
+    anno = CreateAnnotations(foldername, target_location[25:])
     anno.set_size(image_aug.shape)
     for index, bb in enumerate(bbs_aug):
         xmin = int(bb.x1)
@@ -94,7 +94,6 @@ for filename in tqdm(os.listdir(directory)):
     gc.collect()
     if os.path.isfile(f):
         if not "hor" in f and not "ver" in f and not 'xml' in f:
-            print(f)
             jpg_loc=f
             if 'aug' in f:
                 xml_loc = f[0:18] + 'annotations\\' + f[-30:-3] + 'xml'

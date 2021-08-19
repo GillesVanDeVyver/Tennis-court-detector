@@ -22,7 +22,7 @@ for filename in tqdm(os.listdir(directory)):
             target_log_jpg = f
             photo_name = target_log_jpg[24:-4]
             print(photo_name)
-            target_log_jpg = 'data as jpeg\O' + photo_name + ".jpg"
+            target_log_jpg = '..\data as jpeg\O' + photo_name + ".jpg"
             print(target_log_jpg)
             img.write(target_log_jpg)
             tiles = image_slicer.slice(target_log_jpg, 64, save=False)

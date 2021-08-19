@@ -59,7 +59,7 @@ def augment_images(image_as_np_arr):
 nb_of_augmentations=10
 
 PIL.Image.MAX_IMAGE_PIXELS = 933120000
-directory = 'tennis_data\\train\images'
+directory = '..\\tennis_data\\train\images'
 
 image_list=[]
 img_locations=[]

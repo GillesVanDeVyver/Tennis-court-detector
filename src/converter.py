@@ -8,7 +8,7 @@ import gc
 
 
 PIL.Image.MAX_IMAGE_PIXELS = 933120000
-directory = 'VLAANDEREN_WINTER_2019'
+directory = '..\VLAANDEREN_WINTER_2019'
 
 i=1
 for filename in tqdm(os.listdir(directory)):

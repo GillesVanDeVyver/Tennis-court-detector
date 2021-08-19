@@ -86,7 +86,7 @@ def geo_augment(xml_loc,jpg_loc,target_loc):
 
 
 PIL.Image.MAX_IMAGE_PIXELS = 933120000
-directory = 'tennis_data\\train\images'
+directory = '..\\tennis_data\\train\images'
 
 print("flipping images...")
 for filename in tqdm(os.listdir(directory)):

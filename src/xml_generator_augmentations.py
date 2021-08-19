@@ -9,7 +9,7 @@ from lxml import etree
 # this needs to be executed before flipping
 
 PIL.Image.MAX_IMAGE_PIXELS = 933120000
-directory = 'tennis_data\\train\images'
+directory = '..\\tennis_data\\train\images'
 
 
 print("flipping images...")

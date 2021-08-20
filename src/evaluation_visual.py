@@ -1,25 +1,43 @@
+"""
+Applies the given model to the given picture
+
+@param img_loc: path to image
+@param model_loc: path to model
+@param config_loc: path to json config
+
+@param output_name: relative output path and name
+"""
+img_loc="..\\tennis_data\\validation\images\MWRGBMRVL_K048n_07_07.jpg"
+model_loc="..\\tennis_data\models\detection_model-ex-001--loss-0045.416.h5"
+config_loc="..\\tennis_data\json\detection_config.json"
+
+output_name='detected_image.jpg'
+
+verbose=False
+
+
+
+
+
+
+
+
 from imageai.Detection.Custom import CustomObjectDetection
 import cv2
 from PIL import Image
 
-#image_array = cv2.imread("tennis_data\\validation\images\MWRGBMRVL_K048n_07_07.jpg")
-image_array = cv2.imread("..\\tennis_data\\train\images\MWRGBMRVL_K018z_04_05.jpg")
+image_array = cv2.imread(img_loc)
 detector = CustomObjectDetection()
 detector.setModelTypeAsYOLOv3()
-detector.setModelPath("..\\tennis_data\models\detection_model-ex-001--loss-0072.113.h5")
-detector.setJsonPath("..\\tennis_data\json\detection_config.json")
+detector.setModelPath(model_loc)
+detector.setJsonPath(config_loc)
 detector.loadModel()
 
 detected_image, detections = detector.detectObjectsFromImage(input_image=image_array, input_type="array", output_type="array", minimum_percentage_probability=30)
-for eachObject in detections:
-    print(eachObject["name"], " : ", eachObject["percentage_probability"], " : ", eachObject["box_points"])
-
-#img = Image.fromarray(detected_image)
-#img.save("detected_image.jpg")
-print(len(detections))
-#cv2.imshow("Main Image", detected_image)
-#cv2.imwrite('detected_image2.jpg', detected_image)
-cv2.imwrite('detected_image2_train.jpg', detected_image)
-
+if verbose:
+    for eachObject in detections:
+        print(eachObject["name"], " : ", eachObject["percentage_probability"], " : ", eachObject["box_points"])
+    print(len(detections))
+cv2.imwrite(output_name, detected_image)
 cv2.waitKey()
 cv2.destroyAllWindows()

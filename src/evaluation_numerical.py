@@ -1,70 +1,39 @@
+"""
+This script compares all models in a given directory by calculating
+the mean Average Precicion(mAP) of every model on the given data with given
+Intersection of Union (IoU) threshold,
+Non-Maximum Suppression (nms) threshold and
+object threshold
+
+@param data_dir: data directory
+@param model_dir: model directory
+@param config_dir: json config directory
+
+@param IoU_thresh: IoU threshold
+@param obj_thresh: object threshold
+@param nms_thresh: nms threshold
+"""
+
+data_dir="../tennis_data"
+model_dir="../tennis_data/models"
+config_dir="../tennis_data/json/detection_config.json"
+
+IoU_thresh=0.3
+obj_thresh=0.3
+nms_thresh=0.3
+
+
+
+
+
+
+
+
 from imageai.Detection.Custom import DetectionModelTrainer
+
 
 trainer = DetectionModelTrainer()
 trainer.setModelTypeAsYOLOv3()
-trainer.setDataDirectory(data_directory="..\\tennis_data")
-trainer.evaluateModel(model_path="..\\tennis_data/models", json_path="..\\tennis_data/json/detection_config.json", iou_threshold=0.5, object_threshold=0.3, nms_threshold=0.3)
-
-
-
-"""
-SAMPLE RESULT
-
-
-Model File:  hololens/models/detection_model-ex-07--loss-4.42.h5 
-
-Using IoU :  0.5
-Using Object Threshold :  0.3
-Using Non-Maximum Suppression :  0.5
-hololens: 0.9231
-mAP: 0.9231
-===============================
-Model File:  hololens/models/detection_model-ex-10--loss-3.95.h5 
-
-Using IoU :  0.5
-Using Object Threshold :  0.3
-Using Non-Maximum Suppression :  0.5
-hololens: 0.9725
-mAP: 0.9725
-===============================
-Model File:  hololens/models/detection_model-ex-05--loss-5.26.h5 
-
-Using IoU :  0.5
-Using Object Threshold :  0.3
-Using Non-Maximum Suppression :  0.5
-hololens: 0.9204
-mAP: 0.9204
-===============================
-Model File:  hololens/models/detection_model-ex-03--loss-6.44.h5 
-
-Using IoU :  0.5
-Using Object Threshold :  0.3
-Using Non-Maximum Suppression :  0.5
-hololens: 0.8120
-mAP: 0.8120
-===============================
-Model File:  hololens/models/detection_model-ex-18--loss-2.96.h5 
-
-Using IoU :  0.5
-Using Object Threshold :  0.3
-Using Non-Maximum Suppression :  0.5
-hololens: 0.9431
-mAP: 0.9431
-===============================
-Model File:  hololens/models/detection_model-ex-17--loss-3.10.h5 
-
-Using IoU :  0.5
-Using Object Threshold :  0.3
-Using Non-Maximum Suppression :  0.5
-hololens: 0.9404
-mAP: 0.9404
-===============================
-Model File:  hololens/models/detection_model-ex-08--loss-4.16.h5 
-
-Using IoU :  0.5
-Using Object Threshold :  0.3
-Using Non-Maximum Suppression :  0.5
-hololens: 0.9725
-mAP: 0.9725
-===============================
-"""
+trainer.setDataDirectory(data_directory=data_dir)
+trainer.evaluateModel(model_path=model_dir, json_path=config_dir, iou_threshold=IoU_thresh,
+                      object_threshold=nms_thresh, nms_threshold=nms_thresh)

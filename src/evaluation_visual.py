@@ -8,7 +8,7 @@ Applies the given model to the given picture
 @param output_name: relative output path and name
 """
 img_loc="..\\tennis_data\\validation\images\MWRGBMRVL_K048n_07_07.jpg"
-model_loc="..\\tennis_data\models\detection_model-ex-001--loss-0045.416.h5"
+model_loc="..\\tennis_data\models\detection_model-ex-001--loss-0041.692.h5"
 config_loc="..\\tennis_data\json\detection_config.json"
 
 output_name='detected_image.jpg'
@@ -33,7 +33,7 @@ detector.setModelPath(model_loc)
 detector.setJsonPath(config_loc)
 detector.loadModel()
 
-detected_image, detections = detector.detectObjectsFromImage(input_image=image_array, input_type="array", output_type="array", minimum_percentage_probability=30)
+detected_image, detections = detector.detectObjectsFromImage(input_image=image_array, input_type="array", output_type="array", minimum_percentage_probability=20)
 if verbose:
     for eachObject in detections:
         print(eachObject["name"], " : ", eachObject["percentage_probability"], " : ", eachObject["box_points"])

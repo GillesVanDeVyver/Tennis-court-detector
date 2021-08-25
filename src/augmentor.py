@@ -11,8 +11,8 @@ type II annotations: horizontal and vertical flips
 @param nb_of_typeI_augmentations: the number of iterations for every imqge for type I augmentations
 """
 
-directory = '..\\new labelled data'
-nb_of_typeI_augmentations=10
+directory = '..\\tennis_data\\train'
+nb_of_typeI_augmentations=8
 
 
 img_size=(4000,2500,3)
@@ -196,7 +196,7 @@ def geo_augment(xml_loc,jpg_loc,target_loc):
 def save_file(bbs_aug, target_location,image_aug):
     foldername = ""
 
-    anno = CreateAnnotations(foldername, target_location[25:])
+    anno = CreateAnnotations(foldername, target_location[25+3:])
     anno.set_size(image_aug.shape)
     for index, bb in enumerate(bbs_aug):
         xmin = int(bb.x1)
@@ -227,6 +227,7 @@ img_dir=directory+"\images"
 anno_dir=directory+"\\annotations"
 
 # fix XML files
+
 
 for filename in os.listdir(img_dir):
     f = os.path.join(img_dir, filename)

@@ -16,13 +16,13 @@ target_for_slices='..\slices'
 
 
 
-
 from pgmagick import Image
 import os
 import PIL
 import image_slicer
 from tqdm import tqdm
 import gc
+
 
 
 

@@ -1,3 +1,26 @@
+"""
+This script was added as an attempt to improve accuracy.
+The hypothesis was the poor detection quality was due to the images being too big.
+
+The script takes images and annotation in the given directories, cuts them into slices
+and writes them to target directory. Slices without annotations are discarded
+
+@param directory: directory to read original images from
+@param xml_dir: directory to read original annoations from
+@param target_for_slices: target directory to write images to
+@param target_for_slice_annotations: target directory to write annotations to
+"""
+
+xml_dir='..\\tennis_data\\validation\\annotations'
+target_for_slices='..\slices'
+target_for_slice_annotations='..\slice_annotations'
+
+directory='..\\tennis_data\\validation\\images'
+
+
+
+
+
 from pgmagick import Image
 import image_slicer
 
@@ -9,11 +32,7 @@ import PIL
 from tqdm import tqdm
 import gc
 
-xml_dir='..\\backup labelled data\\annotations'
-target_for_slices='..\slices'
-target_for_slice_annotations='..\slice_annotations'
 
-directory='..\\backup labelled data\\images'
 
 
 

@@ -10,7 +10,7 @@ and a subfolder annotations with .xml files
 
 data_dir="..\\tennis_data"
 objects=["tennis_court"]
-model_loc="..\\tennis_data\models\detection_model-ex-001--loss-0045.416.h5"
+model_loc="..\\tennis_data\models\detection_model-ex-001--loss-0041.692.h5"
 
 
 
@@ -23,6 +23,10 @@ trainer = DetectionModelTrainer()
 trainer.setModelTypeAsYOLOv3()
 trainer.setDataDirectory(data_directory=data_dir)
 trainer.setTrainConfig(object_names_array=objects, batch_size=16,
-                       num_experiments=100, train_from_pretrained_model=model_loc)
+                       num_experiments=2, train_from_pretrained_model=model_loc)
                       # training_image_size=2048) not recoognized
 trainer.trainModel()
+
+
+
+#models sliced: 46.8677 and 44.632
